@@ -1,0 +1,15 @@
+services:
+  homeassistant:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: homeassistant-dev
+    volumes:
+      - ./config:/config
+      - ./dist:/config/www/custom_components/weekly-schedule-card
+      - ./:/local/custom_components
+    ports:
+      - "8123:8123"
+    restart: unless-stopped
+    environment:
+      - TZ=Europe/Lisbon

@@ -1,0 +1,8 @@
+default_config:
+
+frontend:
+  extra_module_url:
+    - /local/custom_components/weekly-schedule-card/weekly-schedule-card.js
+
+lovelace:
+  mode: storage

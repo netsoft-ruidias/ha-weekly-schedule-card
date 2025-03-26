@@ -1,0 +1,33 @@
+{
+  "name": "weekly-schedule-card",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Custom weekly-schedule card for Home Assistant",
+  "main": "dist/weekly-schedule-card.js",
+  "scripts": {
+    "build": "rollup -c",
+    "watch": "rollup -c --watch"
+  },
+  "keywords": [
+    "home-assistant",
+    "weekly-schedule-card",
+    "frontend"
+  ],
+  "author": "Rui Dias",
+  "license": "MIT",
+  "dependencies": {
+    "lit": "^2.7.0",
+    "@material/mwc-button": "^0.27.0",
+    "@material/mwc-textfield": "^0.27.0",
+    "custom-card-helpers": "^1.9.0"
+  },
+  "devDependencies": {
+    "@rollup/plugin-node-resolve": "^15.0.0",
+    "@rollup/plugin-typescript": "^11.0.0",
+    "@rollup/plugin-babel": "^6.0.0",
+    "@rollup/plugin-commonjs": "^24.0.0",
+    "rollup": "^3.20.0",
+    "typescript": "^5.0.0",
+    "tslib": "^2.5.0"
+  }
+}

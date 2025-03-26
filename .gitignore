@@ -10,6 +10,12 @@ lerna-debug.log*
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 
+# Home Assistant
+config/.HA_VERSION
+config/home-assistant*.*
+config/.storage/*
+config/blueprints/*
+
 # Runtime data
 pids
 *.pid
@@ -134,3 +140,4 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
