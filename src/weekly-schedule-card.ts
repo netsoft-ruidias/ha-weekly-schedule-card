@@ -6,8 +6,8 @@ console.info(
     `%c  WEEKLY-SCHEDULE-CARD \n%c  Version 0.1.0    `,
     'color: orange; font-weight: bold; background: black',
     'color: white; font-weight: bold; background: dimgray',
-  );
-  
+);
+
 // This puts the card into the UI card picker dialog
 window.customCards = window.customCards || [];
 window.customCards.push({
@@ -73,7 +73,10 @@ class WeeklyScheduleCard extends HTMLElement {
         const headerRow = days.map(day => `<div class="grid-header">${day}</div>`).join('');
 
         // Create a map of existing events for each day
-        const eventsByDay = Array(days.length - 1).fill(null).map(() => []);
+        const eventsByDay: ScheduleEvent[][] = Array(days.length - 1)
+            .fill(null)
+            .map(() => []);
+
         this.config.events?.forEach(event => {
             const dayIndex = this.getDayIndex(event.day) - 1;
             if (dayIndex >= 0 && dayIndex < days.length - 1) {
@@ -85,9 +88,9 @@ class WeeklyScheduleCard extends HTMLElement {
         const timeCells = hours.map(hour => `<div class="grid-time">${hour}</div>`).join('');
 
         // Generate event cells for each day
-        const eventCells = eventsByDay.map((dayEvents, dayIndex) => {
+        const eventCells = eventsByDay.map((dayEvents: ScheduleEvent[], dayIndex: number) => {
             const cells: string[] = [];
-            dayEvents.forEach(event => {
+            dayEvents.forEach((event: ScheduleEvent) => {
                 const startRow = event.start - this.config.startHour + 2; // +2 because of header row and 1-based grid
                 const endRow = event.end - this.config.startHour + 2;
                 cells.push(`
