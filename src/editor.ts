@@ -62,23 +62,6 @@ export class WeeklyScheduleCardEditor extends LitElement {
             <div class="card-config">
                 <div class="option">
                     <ha-textfield
-                        label="Título"
-                        .value="${this._config.title || ''}"
-                        .configValue=${'title'}
-                        @input=${this.configChanged}
-                    ></ha-textfield>
-                </div>
-                <div class="option">
-                    <ha-textfield
-                        label="Conteúdo"
-                        .value="${this._config.content || ''}"
-                        .configValue=${'content'}
-                        @input=${this.configChanged}
-                        multiline
-                    ></ha-textfield>
-                </div>
-                <div class="option">
-                    <ha-textfield
                         label="Hora de Início (0-23)"
                         type="number"
                         min="0"

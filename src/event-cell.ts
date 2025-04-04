@@ -56,7 +56,7 @@ export class EventCell extends HTMLElement {
             grid-column: ${this.dayIndex + 1};
             background-color: ${backgroundColor};
             border-left: 4px solid ${this.color};
-            font-size: 13px;
+            font-size: 12px;
             color: var(--text-primary-color);
             text-align: center;
             display: flex;

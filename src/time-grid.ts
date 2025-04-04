@@ -10,16 +10,19 @@ export class TimeGrid extends HTMLElement {
     }
 
     private getDayIndex(day: WeekDay): number {
-        const dayMap = {
-            [WeekDay.Monday]: 1,
-            [WeekDay.Tuesday]: 2,
-            [WeekDay.Wednesday]: 3,
-            [WeekDay.Thursday]: 4,
-            [WeekDay.Friday]: 5,
-            [WeekDay.Saturday]: 6,
-            [WeekDay.Sunday]: 7
+        const dayMap: { [key: string]: number } = {
+            'monday': 1,
+            'tuesday': 2,
+            'wednesday': 3,
+            'thursday': 4,
+            'friday': 5,
+            'saturday': 6,
+            'sunday': 7
         };
-        return dayMap[day];
+        
+        // Convert input to lowercase for case-insensitive matching
+        const normalizedDay = day.toLowerCase();
+        return dayMap[normalizedDay] || 0;
     }
 
     private render(): void {
@@ -38,20 +41,31 @@ export class TimeGrid extends HTMLElement {
                     display: block;
                     padding: 16px;
                 }
+                .schedule-header {
+                    display: grid;
+                    background: var(--primary-color);
+                    grid-template-columns: auto repeat(${days.length - 1}, 1fr);
+                    grid-template-rows: auto repeat(${hours.length}, 1fr);
+                    border-radius: var(--ha-card-border-radius, 12px) var(--ha-card-border-radius, 12px) 0 0;
+                    border-width: var(--ha-card-border-width, 1px);
+                    border-style: solid;
+                    border-color: var(--ha-card-border-color, var(--divider-color, #e0e0e0));
+                    gap: 0px;
+                }
+                .grid-header {
+                    text-align: center;
+                    padding: 8px;
+                    _background: var(--primary-color);
+                    color: var(--text-primary-color);
+                    font-weight: 500;
+                    font-size: 12px;
+                    grid-row: 1;
+                }
                 .schedule-grid {
                     display: grid;
                     grid-template-columns: auto repeat(${days.length - 1}, 1fr);
                     grid-template-rows: auto repeat(${hours.length}, 1fr);
                     gap: 2px;
-                }
-                .grid-header {
-                    text-align: center;
-                    padding: 8px;
-                    background: var(--primary-color);
-                    color: var(--text-primary-color);
-                    font-weight: 500;
-                    font-size: 12px;
-                    grid-row: 1;
                 }
                 .grid-time {
                     padding: 4px 8px;
@@ -66,12 +80,13 @@ export class TimeGrid extends HTMLElement {
                 event-cell {
                 }
             </style>
-            <div class="schedule-grid">
+            <div class="schedule-header">
                 <!-- Headers -->
                 ${days.map((day, i) => `
                     <div class="grid-header" style="grid-column: ${i + 1}">${day}</div>
                 `).join('')}
-                
+            </div>
+            <div class="schedule-grid">
                 <!-- Time labels -->
                 ${hours.map((hour, i) => `
                     <div class="grid-time" style="grid-row: ${i + 2}">${hour}</div>

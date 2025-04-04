@@ -22,8 +22,6 @@ export interface Event {
 
 export interface CardConfig {
     type: string;
-    title?: string;
-    content?: string;
     startHour: number;
     endHour: number;
     showWeekend: boolean;
@@ -34,8 +32,6 @@ export interface CardConfig {
 export type CardEditorConfig = Omit<CardConfig, 'type'>;
 
 export const DEFAULT_CONFIG: Required<CardEditorConfig> = {
-    title: '',
-    content: '',
     startHour: 9,
     endHour: 17,
     showWeekend: false,
