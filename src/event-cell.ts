@@ -11,12 +11,8 @@ export class EventCell extends HTMLElement {
     private startHour: number = 0;
     private dayIndex: number = 0;
 
-    constructor() {
-        super();
-    }
-
     static get observedAttributes() {
-        return ['data-label', 'data-color', 'data-start', 'data-end', 'data-day-index'];
+        return ['data-label', 'data-color', 'data-start', 'data-end', 'data-day-index', 'data-start-hour'];
     }
 
     connectedCallback() {
@@ -40,22 +36,10 @@ export class EventCell extends HTMLElement {
             case 'data-day-index':
                 this.dayIndex = parseInt(newValue, 10);
                 break;
+            case 'data-start-hour':
+                this.startHour = parseInt(newValue, 10);
+                break;
         }
-        this.render();
-    }
-
-    setProperties(props: {
-        label: string;
-        color: string;
-        time: ScheduleTime;
-        startHour: number;
-        dayIndex: number;
-    }) {
-        this.label = props.label;
-        this.color = props.color;
-        this.time = props.time;
-        this.startHour = props.startHour;
-        this.dayIndex = props.dayIndex;
         this.render();
     }
 
@@ -65,17 +49,16 @@ export class EventCell extends HTMLElement {
             : this.color.replace('rgb', 'rgba').replace(')', ', 0.25)');
 
         const startRow = this.time.start - this.startHour + 2;
-        const endRow = this.time.end - this.startHour + 2;
+        const endRow = this.time.end - this.startHour + 1;
 
         this.style.cssText = `
             grid-row: ${startRow} / ${endRow + 1};
-            grid-column: ${this.dayIndex + 2};
+            grid-column: ${this.dayIndex + 1};
             background-color: ${backgroundColor};
             border-left: 4px solid ${this.color};
             font-size: 13px;
             color: var(--text-primary-color);
             text-align: center;
-            z-index: 1;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -83,13 +66,12 @@ export class EventCell extends HTMLElement {
             text-overflow: ellipsis;
             min-height: 28px;
             padding: 4px;
-            margin: 2px;
             border-radius: 0 4px 4px 0;
+            z-index: 1;
         `;
 
         this.textContent = this.label || '';
     }
 }
 
-// Register the custom element
 customElements.define('event-cell', EventCell);
