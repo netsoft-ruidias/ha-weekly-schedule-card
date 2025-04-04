@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "type": "module",
   "description": "Custom weekly-schedule card for Home Assistant",
-  "main": "dist/weekly-schedule-card.js",
+  "main": "dist/ha-weekly-schedule-card.js",
   "files": [
     "/dist"
   ],
