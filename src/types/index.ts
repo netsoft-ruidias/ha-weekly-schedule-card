@@ -8,12 +8,16 @@ export enum WeekDay {
     Sunday = 'sunday'
 }
 
-export interface ScheduleEvent {
+export interface ScheduleTime {
     day: WeekDay;
     start: number;
     end: number;
+}
+
+export interface Event {
     label: string;
     color: string;
+    schedule?: ScheduleTime[]; // Make schedule optional but ensure it's an array when present
 }
 
 export interface CardConfig {
@@ -24,7 +28,7 @@ export interface CardConfig {
     endHour: number;
     showWeekend: boolean;
     size?: number;
-    events: ScheduleEvent[];
+    events: Event[];
 }
 
 export type CardEditorConfig = Omit<CardConfig, 'type'>;
