@@ -1,5 +1,5 @@
 import { CardConfig, WeekDay } from './types';
-import { generateColorFromText } from './utils/color';
+import { normalizeWeekDay, generateColorFromText } from './utils';
 
 export class TimeGrid extends HTMLElement {
     private config!: CardConfig;
@@ -9,19 +9,20 @@ export class TimeGrid extends HTMLElement {
         this.render();
     }
 
-    private getDayIndex(day: WeekDay): number {
+    private getDayIndex(day: WeekDay | string): number {
+        if (!day) return 0;
+        
         const dayMap: { [key: string]: number } = {
-            'monday': 1,
-            'tuesday': 2,
-            'wednesday': 3,
-            'thursday': 4,
-            'friday': 5,
-            'saturday': 6,
-            'sunday': 7
+            [WeekDay.Monday]: 1,
+            [WeekDay.Tuesday]: 2,
+            [WeekDay.Wednesday]: 3,
+            [WeekDay.Thursday]: 4,
+            [WeekDay.Friday]: 5,
+            [WeekDay.Saturday]: 6,
+            [WeekDay.Sunday]: 7
         };
         
-        // Convert input to lowercase for case-insensitive matching
-        const normalizedDay = day.toLowerCase();
+        const normalizedDay = normalizeWeekDay(day);
         return dayMap[normalizedDay] || 0;
     }
 

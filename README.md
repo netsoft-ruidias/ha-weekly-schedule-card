@@ -101,6 +101,39 @@ events:
 | `start` | number | Start hour (0-23)               |
 | `end`   | number | End hour (0-23)                 |
 
+## Editor
+
+The card includes a visual editor that allows you to:
+
+- Set basic configuration (start hour, end hour, show weekend)
+- Add, edit, and remove events
+- For each event:
+  - Set label and color
+  - Add, edit, and remove schedule entries
+  - Select days and times visually
+
+To access the editor:
+
+1. Add the card to your dashboard
+2. Click the three dots menu in the top-right corner of the card
+3. Click "Edit"
+
+### Adding Events
+
+1. Click "Add Event"
+2. Set the event label and color
+3. Click "Add Schedule" to add time slots
+4. For each schedule entry:
+   - Select the day of the week
+   - Set start and end hours
+   - Click the trash icon to remove unwanted entries
+
+### Editing Events
+
+1. Click on an existing event to expand it
+2. Modify the label, color, or schedule entries
+3. Changes are saved automatically
+
 ## Development
 
 ```bash

@@ -4,6 +4,13 @@
   "type": "module",
   "description": "Custom weekly-schedule card for Home Assistant",
   "main": "dist/weekly-schedule-card.js",
+  "files": [
+    "/dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/netsoft-ruidias/ha-weekly-schedule-card"
+  },  
   "scripts": {
     "build": "rollup -c",
     "watch": "rollup -c --watch"
@@ -15,19 +22,24 @@
   ],
   "author": "Rui Dias",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/netsoft-ruidias/ha-weekly-schedule-card/issues"
+  },
+  "homepage": "https://github.com/netsoft-ruidias/ha-weekly-schedule-card#readme",  
   "dependencies": {
-    "lit": "^2.7.0",
     "@material/mwc-button": "^0.27.0",
     "@material/mwc-textfield": "^0.27.0",
-    "custom-card-helpers": "^1.9.0"
+    "@mdi/js": "^7.4.47",
+    "custom-card-helpers": "^1.9.0",
+    "lit": "^2.7.0"
   },
   "devDependencies": {
-    "@rollup/plugin-node-resolve": "^15.0.0",
-    "@rollup/plugin-typescript": "^11.0.0",
     "@rollup/plugin-babel": "^6.0.0",
     "@rollup/plugin-commonjs": "^24.0.0",
+    "@rollup/plugin-node-resolve": "^15.0.0",
+    "@rollup/plugin-typescript": "^11.0.0",
     "rollup": "^3.20.0",
-    "typescript": "^5.0.0",
-    "tslib": "^2.5.0"
+    "tslib": "^2.5.0",
+    "typescript": "^5.0.0"
   }
 }
