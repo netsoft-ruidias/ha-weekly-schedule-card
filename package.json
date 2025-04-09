@@ -3,13 +3,13 @@
   "version": "1.0.0",
   "type": "module",
   "description": "Custom weekly-schedule card for Home Assistant",
-  "main": "dist/ha-weekly-schedule-card.js",
+  "main": "dist/weekly-schedule-card.js",
   "files": [
     "/dist"
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/netsoft-ruidias/ha-weekly-schedule-card"
+    "url": "https://github.com/netsoft-ruidias/lovelace-weekly-schedule-card"
   },  
   "scripts": {
     "build": "rollup -c",
@@ -23,9 +23,9 @@
   "author": "Rui Dias",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/netsoft-ruidias/ha-weekly-schedule-card/issues"
+    "url": "https://github.com/netsoft-ruidias/lovelace-weekly-schedule-card/issues"
   },
-  "homepage": "https://github.com/netsoft-ruidias/ha-weekly-schedule-card#readme",  
+  "homepage": "https://github.com/netsoft-ruidias/lovelace-weekly-schedule-card#readme",  
   "dependencies": {
     "@material/mwc-button": "^0.27.0",
     "@material/mwc-textfield": "^0.27.0",

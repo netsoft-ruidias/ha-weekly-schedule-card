@@ -6,7 +6,7 @@ import babel from '@rollup/plugin-babel';
 export default {
   input: 'src/weekly-schedule-card.ts',
   output: {
-    file: 'dist/ha-weekly-schedule-card.js',
+    file: 'dist/weekly-schedule-card.js',
     format: 'es',
     sourcemap: true
   },

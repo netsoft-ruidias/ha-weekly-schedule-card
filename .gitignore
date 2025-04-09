@@ -15,6 +15,7 @@ config/.HA_VERSION
 config/home-assistant*.*
 config/.storage/*
 config/blueprints/*
+dist
 
 # Runtime data
 pids
@@ -95,7 +96,6 @@ out
 
 # Nuxt.js build / generate output
 .nuxt
-dist
 
 # Gatsby files
 .cache/

@@ -14,7 +14,7 @@ A custom card for Home Assistant that displays a weekly schedule grid with confi
    - Go to "Frontend" section
    - Click menu (3 dots in top right)
    - Select "Custom repositories"
-   - Add URL: `https://github.com/yourusername/ha-weekly-schedule-card`
+   - Add URL: `https://github.com/netsoft-ruidias/lovelace-weekly-schedule-card`
    - Category: "Lovelace"
 3. Click "Install"
 4. Refresh your browser
